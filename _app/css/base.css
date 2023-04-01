@@ -1,0 +1,18 @@
+html {
+	font-size: 1.38888889vw;
+}
+
+body {
+	font-family: var(--primary-font);
+	background-color: var(--background-color);
+}
+
+p {
+	color: var(--primary-color);
+}
+
+select {
+	font-family: var(--primary-font);
+	border: none;
+	background: none;
+}

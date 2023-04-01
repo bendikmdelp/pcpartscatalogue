@@ -10,6 +10,35 @@
 	</head>
 	
 	<body>
-		index.html
+		<header class="header">
+			<div class="header__logo-cart">
+				<a href="/" class="header__logo-link">
+					PC Parts Catalogue
+				</a>
+				<a href="/cart" class="header__cart-link">
+					<img src="/_app/assets/icons/shopping_cart.svg" alt="" class="header__cart-image">
+				</a>
+			</div>
+
+			<div class="header__dropdowns">
+				<select name="category" id="category" class="header__filter-category">
+					<option selected disabled value="">Category</option>
+				</select>
+
+				<select name="brand" id="brand" class="header__filter-brand">
+					<option selected disabled value="">Brand</option>
+				</select>
+			</div>
+		</header>
+		<main>
+			<div class="search-container">
+				<input type="text" placeholder="search" id="search" class="search__input">
+				<button class="search__button">Search</button>
+			</div>
+
+			<section class="products">
+				<div class="products__list"></div>
+			</section>
+		</main>
 	</body>
 </html>
