@@ -1,0 +1,21 @@
+.search-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 1.25rem;
+	align-items: center;
+	gap: 0.85rem;
+}
+
+.search__input {
+	border: var(--secondary-color) 0.65rem solid;
+	width: 33.05rem;
+	height: 3.35rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+}
+
+.search__button {
+	background-color: var(--secondary-color);
+	height: 2.55rem;
+	width: 5.6rem;
+}
