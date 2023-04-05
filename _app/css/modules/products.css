@@ -1,0 +1,37 @@
+
+.products{
+	position: relative;
+	width: 90%;
+	left: 5%;
+	top: 5%;
+}
+
+.products__list{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 1rem;
+
+}
+
+.products__list-item{
+	display: grid;
+	grid-template-areas: 
+	'image image image image'
+	'image image image image'
+	'image image image image'
+	'title title title price';
+	border: 0.2rem solid;
+	margin: 0.1rem
+}
+
+.products__list-item-image{
+	grid-area: image;
+}
+
+.products__list-item-price{
+	grid-area: price;
+}
+
+.products__list-item-title{
+	grid-area: title;
+}
