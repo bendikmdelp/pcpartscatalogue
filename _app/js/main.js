@@ -1,3 +1,5 @@
+import { getALLBrands } from "./modules/get-brands.js";
 import { getAllProducts } from "./modules/get-products.js";
 
-getAllProducts();
+const products = getAllProducts();
+getALLBrands(products);

@@ -4,7 +4,8 @@ export async function getAllProducts() {
 	const query = `*[_type == 'product'] {
 		name,
     price,
-  "image": image.asset-> url
+  "image": image.asset-> url,
+  "brand": brand->name
 	}`;
 
 	const params = {
@@ -12,7 +13,6 @@ export async function getAllProducts() {
 	};
 
 	const products = await sanity.fetch(query);
-
 
 	renderHTML();
 
@@ -46,5 +46,5 @@ export async function getAllProducts() {
 		return productItem;
 	}
 
-	//return products
+	return products
 }
