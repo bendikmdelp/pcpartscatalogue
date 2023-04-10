@@ -6,7 +6,8 @@ export async function getAllProducts() {
 		name,
     price,
   "image": image.asset-> url,
-  "brand": brand->name
+  "brand": brand->name,
+  "category": category->name
 	}`;
 
 	const params = {
@@ -20,8 +21,6 @@ export async function getAllProducts() {
 	function renderHTML() {
 		createProductListDOM(products)
 	}
-
-	
 
 	return products
 }
