@@ -1,6 +1,9 @@
 import { sanity } from "../sanity.js";
+import { createProductListDOM } from "./render.js";
 
 export async function getALLBrands (products) {
+	const productList = products
+
 	const query = `*[_type == 'brand'] {
 		name,
 		description,
@@ -11,12 +14,17 @@ export async function getALLBrands (products) {
 
 	const brands = await sanity.fetch(query);
 
-	console.log(brands)
+	function handleBrandOptionClick(event) {
+		const sortedProductsByBrand = sortByClickedBrand(event);
+		console.log(sortedProductsByBrand)
+		renderHTML(sortedProductsByBrand);
+	}
 
 	renderHTML();
 
-	function renderHTML() {
-		const brandsDropdown = document.querySelector('.header__filter-brand')
+	function fillBrandDropdown(){
+		const brandsDropdown = document.querySelector('.header__filter-brand');
+		// brandsDropdown.innerHTML = ''
 		for(const brand of brands){
 			const brandOption = document.createElement('option');
 
@@ -28,12 +36,20 @@ export async function getALLBrands (products) {
 		brandsDropdown.addEventListener('change', handleBrandOptionClick);
 	}
 
-	function handleBrandOptionClick(event) {
-		sortByClickedBrand(event);
-	}
-
 	function sortByClickedBrand(event) {
 		const clickedBrand = event.currentTarget.selectedIndex-1;
-		console.log(clickedBrand);
+		const sortedProducts = productList.filter(product => product.brand === brands[clickedBrand].name)
+		
+		return sortedProducts;
+	}
+
+	function renderHTML(products) {
+
+		if(products){
+			createProductListDOM(products);
+		}else {
+			fillBrandDropdown();
+		}
+
 	}
 }

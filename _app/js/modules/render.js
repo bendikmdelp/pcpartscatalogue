@@ -20,6 +20,7 @@ function createProductItemDOM(product) {
 
 function createProductListDOM(products) {
 	const productsContainer = document.querySelector('.products__list');
+	productsContainer.innerHTML = ''
 
 		for(const product of products) {
 			const productItem = createProductItemDOM(product);
