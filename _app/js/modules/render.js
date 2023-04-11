@@ -11,7 +11,7 @@ function createProductItemDOM(product) {
 
 	productImage.src=product.image;
 	productTitle.innerText = product.name;
-	productPrice.innerText = product.price;
+	productPrice.innerText = `${product.price/100}Kr`;
 
 	productItem.append(productImage, productTitle, productPrice);
 
