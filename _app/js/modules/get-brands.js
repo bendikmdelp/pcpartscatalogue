@@ -16,7 +16,6 @@ export async function getALLBrands (products) {
 
 	function handleBrandOptionClick(event) {
 		const sortedProductsByBrand = sortByClickedBrand(event);
-		console.log(sortedProductsByBrand)
 		renderHTML(sortedProductsByBrand);
 	}
 
@@ -38,15 +37,27 @@ export async function getALLBrands (products) {
 
 	function sortByClickedBrand(event) {
 		const clickedBrand = event.currentTarget.selectedIndex-1;
-		const sortedProducts = productList.filter(product => product.brand === brands[clickedBrand].name)
+		const chosenBrand = brands[clickedBrand].name
 		
-		return sortedProducts;
+		return chosenBrand;
+	}
+
+	function sortProductsByBrand(brand) {
+		console.log(brand)
+		const productNodeList = document.querySelectorAll('.products__list-item')
+		for(const [index, product] of productNodeList.entries()){
+			product.classList.add('products__list-item--hidden');
+
+			if(productList[index].brand === brand){
+				product.classList.remove('products__list-item--hidden');
+			}
+		}
 	}
 
 	function renderHTML(products) {
 
 		if(products){
-			createProductListDOM(products);
+			sortProductsByBrand(products);
 		}else {
 			fillBrandDropdown();
 		}
