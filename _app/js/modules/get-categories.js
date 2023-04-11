@@ -15,8 +15,8 @@ export async function getALLCategories (products) {
 	const categories = await sanity.fetch(query);
 
 	function handleCategoryOptionClick(event) {
-		const sortedProductsByCategory = sortByClickedBrand(event);
-		renderHTML(sortedProductsByCategory);
+		const chosenCategory = sortByClickedCategory(event);
+		renderHTML(chosenCategory);
 	}
 
 	renderHTML();
@@ -35,17 +35,30 @@ export async function getALLCategories (products) {
 		categoryDropdown.addEventListener('change', handleCategoryOptionClick);
 	}
 
-	function sortByClickedBrand(event) {
+	function sortByClickedCategory(event) {
 		const clickedCategory = event.currentTarget.selectedIndex-1;
-		const sortedProducts = productList.filter(product => product.category === categories[clickedCategory].name)
+		const chosenCategory = categories[clickedCategory].name
 		
-		return sortedProducts;
+		return chosenCategory;
 	}
 
-	function renderHTML(products) {
+	function sortProductsByCategory(category) {
+		const productNodeList = document.querySelectorAll('.products__list-item')
+		console.log(productList);
+		console.log(category)
+		for(const [index, product] of productNodeList.entries()){
+			product.classList.add('products__list-item--hidden');
 
-		if(products){
-			createProductListDOM(products);
+			if(productList[index].category === category){
+				product.classList.remove('products__list-item--hidden');
+			}
+		}
+	}
+
+	function renderHTML(chosenCategory) {
+
+		if(chosenCategory){
+			sortProductsByCategory(chosenCategory);
 		}else {
 			fillCategoryDropdown();
 		}

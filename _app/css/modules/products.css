@@ -24,6 +24,10 @@
 	margin: 0.1rem
 }
 
+.products__list-item--hidden{
+	display: none;
+}
+
 .products__list-item-image{
 	grid-area: image;
 }
