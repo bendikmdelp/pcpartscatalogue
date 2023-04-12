@@ -21,7 +21,9 @@
 	'image image image image'
 	'title title title price';
 	border: 0.2rem solid;
-	margin: 0.1rem
+	margin: 0.1rem;
+	padding: 0.5rem;
+	height: 20rem;
 }
 
 .products__list-item--hidden{
@@ -30,6 +32,7 @@
 
 .products__list-item-image{
 	grid-area: image;
+	height: 15rem;
 }
 
 .products__list-item-price{
