@@ -24,9 +24,13 @@ export async function getAllProducts() {
 		showRandomProducts(newArray);
 	}
 
-	function createArray() {
-		const newArray = [];
-		console.log('new')
+	function createArray(array) {
+		let newArray
+		if(array){
+			newArray = array;
+		}else{
+			newArray = [];
+		}
 
 		for(let index = 0; newArray.length < 6; index++) {
 			const min = Math.ceil(0);
@@ -35,7 +39,7 @@ export async function getAllProducts() {
 			let randomNumber = Math.floor(Math.random() * (max-min) + min);
 
 			if(newArray.includes(randomNumber)){
-				createArray();
+				createArray(newArray);
 			}else {
 				newArray.push(randomNumber)
 			}
@@ -46,7 +50,6 @@ export async function getAllProducts() {
 	}
 
 	function showRandomProducts(array) {
-		console.log(array)
 		const productNodeList = document.querySelectorAll('.products__list-item')
 		for(const [index, product] of productNodeList.entries()){
 			product.classList.add('products__list-item--hidden');
