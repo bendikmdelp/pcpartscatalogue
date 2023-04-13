@@ -63,5 +63,7 @@ export async function getAllProducts() {
 		}
 	}
 
+	
+
 	return products
 }

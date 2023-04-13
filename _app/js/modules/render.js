@@ -1,3 +1,7 @@
+import { createProductPage } from "./product-page.js";
+
+let productList
+
 function createProductItemDOM(product, index) {
 	const productItem = document.createElement('div');
 	const productImage = document.createElement('img');
@@ -17,10 +21,13 @@ function createProductItemDOM(product, index) {
 
 	productItem.append(productImage, productTitle, productPrice);
 
+	productItem.addEventListener('click', handleProductCardClick);
+
 	return productItem;
 }
 
 function createProductListDOM(products) {
+	productList = products;
 	const productsContainer = document.querySelector('.products__list');
 	productsContainer.innerHTML = ''
 
@@ -29,6 +36,10 @@ function createProductListDOM(products) {
 
 			productsContainer.append(productItem);
 		}
+}
+
+function handleProductCardClick(event) {
+	createProductPage(event, productList)
 }
 
 export {createProductListDOM}
