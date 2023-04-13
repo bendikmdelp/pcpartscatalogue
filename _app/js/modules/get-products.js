@@ -4,11 +4,14 @@ import { createProductListDOM } from "./render.js";
 export async function getAllProducts() {
 	const query = `*[_type == 'product'] {
 		name,
-    price,
-  "image": image.asset-> url,
-  "brand": brand->name,
-  "category": category->name
-	}`;
+		  price,
+		  description,
+		  avaliability,
+		  content,
+			"image": image.asset-> url,
+			"brand": brand->name,
+			"category": category->name
+		}`;
 
 	const params = {
 
