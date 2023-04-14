@@ -1,6 +1,7 @@
 @import './modules/header.css';
 @import './modules/search.css';
 @import './modules/products.css';
+@import './modules/product-page.css';
 
 
 @import './reset.css';
